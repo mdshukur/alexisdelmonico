@@ -30,22 +30,25 @@ window.addEventListener("scroll", () => {
 
 
 // scroll top
-document.addEventListener('DOMContentLoaded', function () {
-   var scrollTopBtn = document.getElementById('scroll-top-btn');
+document.addEventListener("DOMContentLoaded", function () {
+  var scrollTopBtn = document.getElementById("scrollTopBtn");
 
-   window.onscroll = function () {
-     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-       scrollTopBtn.style.display = 'block';
-     } else {
-       scrollTopBtn.style.display = 'none';
-     }
-   };
+  window.addEventListener("scroll", function () {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollTopBtn.style.display = "block";
+      } else {
+          scrollTopBtn.style.display = "none";
+      }
+  });
 
-   scrollTopBtn.addEventListener('click', function () {
-     document.body.scrollTop = 0;
-     document.documentElement.scrollTop = 0;
-   });
- });
+  scrollTopBtn.addEventListener("click", function () {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  });
+});
+
+
+
 // review
  var swiper = new Swiper(".slide-container", {
    slidesPerView: 4,
